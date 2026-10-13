@@ -66,7 +66,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
             <figcaption className="mt-7 flex items-center gap-4">
               <span
                 aria-hidden="true"
-                className="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary-700 font-display text-lg font-bold text-white"
+                className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand font-display text-lg font-bold text-white"
               >
                 {item.name.charAt(0)}
               </span>

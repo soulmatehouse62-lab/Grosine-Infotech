@@ -9,14 +9,14 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition duration-200 focus-visible:outline-offset-4 disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<ButtonVariant, string> = {
-  // Main call to action: amber with dark text for strong contrast.
+  // Main call to action: the logo's blue-to-magenta gradient with white text.
   primary:
-    "bg-accent-500 text-ink shadow-[0_8px_20px_-8px_var(--color-accent-600)] hover:-translate-y-0.5 hover:bg-accent-400",
+    "bg-brand text-white shadow-glow hover:-translate-y-0.5 hover:brightness-110",
   secondary:
-    "border border-primary-700/25 bg-white text-primary-800 hover:border-primary-700 hover:bg-primary-50",
-  dark: "bg-primary-700 text-white hover:-translate-y-0.5 hover:bg-primary-800",
+    "border border-primary-700/20 bg-white text-primary-800 shadow-soft hover:border-primary-700 hover:bg-primary-50",
+  dark: "bg-primary-950 text-white hover:-translate-y-0.5 hover:bg-primary-800",
   // For dark backgrounds.
-  light: "border border-white/30 text-white hover:bg-white/10",
+  light: "border border-white/25 bg-white/5 text-white hover:bg-white/15",
   whatsapp: "bg-[#0f7a41] text-white hover:-translate-y-0.5 hover:bg-[#0c6636]",
 };
 

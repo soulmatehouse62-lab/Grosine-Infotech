@@ -21,7 +21,7 @@ export function LegalPage({ title, path, intro, sections }: LegalPageProps) {
 
       <Section tone="white">
         <div className="mx-auto max-w-3xl">
-          <p className="rounded-2xl border border-accent-200 bg-accent-50 px-5 py-4 text-sm leading-relaxed text-ink">
+          <p className="rounded-2xl border border-primary-200 bg-primary-50 px-5 py-4 text-sm leading-relaxed text-ink">
             <strong>Placeholder text.</strong> This page is a starting template
             and is not legal advice. Have it reviewed and completed by a
             qualified professional before the site goes live.

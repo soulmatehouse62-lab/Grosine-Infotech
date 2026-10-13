@@ -32,23 +32,19 @@ export function SectionHeading({
       {eyebrow && (
         <p
           className={cn(
-            "mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-wide uppercase",
-            onDark ? "text-accent-300" : "text-primary-700",
+            "mb-4 inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold tracking-[0.14em] uppercase",
+            onDark
+              ? "border-white/15 bg-white/[0.07] text-primary-100"
+              : "border-primary-200/80 bg-white text-primary-800 shadow-soft",
           )}
         >
-          <span
-            aria-hidden="true"
-            className={cn(
-              "h-px w-6",
-              onDark ? "bg-accent-300" : "bg-primary-700",
-            )}
-          />
+          <span aria-hidden="true" className="size-1.5 rounded-full bg-accent-500" />
           {eyebrow}
         </p>
       )}
       <h2
         id={id}
-        className="text-3xl leading-tight font-bold sm:text-4xl lg:text-[2.75rem]"
+        className="text-3xl leading-[1.12] font-bold sm:text-4xl lg:text-[2.85rem]"
       >
         {title}
       </h2>

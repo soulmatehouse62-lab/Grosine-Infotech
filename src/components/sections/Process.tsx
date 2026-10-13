@@ -31,10 +31,7 @@ export function Process({
 }: ProcessProps) {
   return (
     <Section tone="dark" labelledBy={id} className="overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute -top-32 -right-24 size-96 rounded-full bg-primary-600/30 blur-3xl"
-      />
+      <div aria-hidden="true" className="bg-mesh-dark absolute inset-0 opacity-70" />
       <SectionHeading
         id={id}
         onDark
@@ -53,17 +50,17 @@ export function Process({
         {steps.map((step, index) => (
           <li key={step.title}>
             <Reveal delay={(index % 3) * 0.08} className="h-full">
-              <div className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition duration-300 hover:border-accent-400/50 hover:bg-white/[0.07] sm:p-7">
+              <div className="h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 transition duration-300 backdrop-blur-sm hover:border-white/30 hover:bg-white/[0.08] sm:p-7">
                 <div className="flex items-center justify-between">
                   <span
                     aria-hidden="true"
-                    className="font-display text-5xl leading-none font-extrabold text-accent-400"
+                    className="text-brand-light font-display text-5xl leading-none font-extrabold"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   {step.icon && (
                     <step.icon
-                      className="size-7 text-primary-300"
+                      className="size-7 text-primary-200"
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />

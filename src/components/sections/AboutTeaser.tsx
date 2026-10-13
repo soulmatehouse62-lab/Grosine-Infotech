@@ -68,7 +68,7 @@ export function AboutTeaser() {
                 >
                   <span
                     aria-hidden="true"
-                    className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary-700 text-white"
+                    className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-brand text-white"
                   >
                     <point.icon className="size-5" strokeWidth={1.75} />
                   </span>

@@ -30,6 +30,8 @@ export const site = {
   /** Used by the text wordmark: first word bold, second word light. */
   wordmark: { primary: "Grosine", secondary: "Infotech" },
   tagline: "Digital marketing and web development that brings you enquiries",
+  /** The three words under the logo. */
+  motto: ["Innovate", "Develop", "Deliver"],
   description:
     "Grosine Infotech is a digital marketing and website development agency in Jaipur, helping small and mid-sized businesses win more leads through SEO, social media marketing, branding and high-performing websites.",
 

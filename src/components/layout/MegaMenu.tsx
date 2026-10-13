@@ -89,7 +89,7 @@ export function MegaMenu({ label, href, items, current, linkClasses }: MegaMenuP
       <div
         id={panelId}
         className={cn(
-          "absolute top-full left-1/2 w-full max-w-5xl -translate-x-1/2 px-4 pt-3 transition duration-200 sm:px-6 lg:px-8",
+          "absolute top-full left-1/2 w-full max-w-5xl -translate-x-1/2 pt-3 transition duration-200",
           open
             ? "visible translate-y-0 opacity-100"
             : "invisible -translate-y-1 opacity-0",
@@ -104,7 +104,7 @@ export function MegaMenu({ label, href, items, current, linkClasses }: MegaMenuP
                   onClick={close}
                   className="group flex h-full gap-3.5 rounded-2xl p-3.5 transition hover:bg-primary-50"
                 >
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700 transition group-hover:bg-primary-700 group-hover:text-white">
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700 transition group-hover:bg-brand group-hover:text-white">
                     {item.icon}
                   </span>
                   <span>
@@ -118,7 +118,7 @@ export function MegaMenu({ label, href, items, current, linkClasses }: MegaMenuP
             ))}
           </ul>
 
-          <div className="on-dark flex flex-col justify-between rounded-2xl bg-primary-800 p-6 text-primary-100">
+          <div className="on-dark flex flex-col justify-between relative overflow-hidden rounded-2xl bg-primary-950 p-6 text-primary-100">
             <div>
               <h3 className="text-lg font-bold">Not sure where to start?</h3>
               <p className="mt-2 text-sm leading-relaxed text-primary-100/85">

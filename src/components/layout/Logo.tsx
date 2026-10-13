@@ -5,9 +5,12 @@ import Link from "next/link";
 import { site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
-// Checked once at build time. Drop a file at public/logo.svg and rebuild to
-// replace the text wordmark. An optional public/logo-light.svg is used on the
-// dark footer; without it the footer falls back to logo.svg.
+// Checked once at build time. By default the logo is the mark
+// (public/logo-mark.png) beside the company name set as text.
+//
+// To use a single vector lockup instead, add public/logo.svg and rebuild.
+// An optional public/logo-light.svg is used on the dark footer; without it
+// the footer falls back to logo.svg.
 const publicFile = (name: string) =>
   fs.existsSync(path.join(process.cwd(), "public", name));
 
@@ -21,17 +24,16 @@ type LogoProps = {
 };
 
 export function Logo({ tone = "dark", className }: LogoProps) {
-  const src = tone === "light" && hasLightLogo ? "/logo-light.svg" : "/logo.svg";
+  const light = tone === "light";
 
   return (
     <Link
       href="/"
-      aria-label={`${site.name} home`}
       className={cn("inline-flex shrink-0 items-center gap-2.5", className)}
     >
       {hasLogo ? (
         <Image
-          src={src}
+          src={light && hasLightLogo ? "/logo-light.svg" : "/logo.svg"}
           alt={site.name}
           width={180}
           height={40}
@@ -40,29 +42,30 @@ export function Logo({ tone = "dark", className }: LogoProps) {
         />
       ) : (
         <>
-          <span
-            aria-hidden="true"
-            className="relative flex size-9 items-center justify-center rounded-xl bg-primary-700 font-display text-xl leading-none font-extrabold text-white"
-          >
-            {site.wordmark.primary.charAt(0)}
-            <span
-              className={cn(
-                "absolute -top-1 -right-1 size-3 rounded-full border-2 bg-accent-500",
-                tone === "light" ? "border-primary-950" : "border-surface",
-              )}
+          {/* The mark is navy, so it sits on a white tile on dark backgrounds. */}
+          <span className={cn("shrink-0", light && "rounded-xl bg-white p-1.5")}>
+            <Image
+              src="/logo-mark.png"
+              alt=""
+              width={203}
+              height={192}
+              priority
+              className={cn("w-auto", light ? "h-8" : "h-9 sm:h-10")}
             />
           </span>
-          <span
-            className={cn(
-              "font-display text-xl leading-none tracking-tight",
-              tone === "light" ? "text-white" : "text-ink",
-            )}
-          >
-            <span className="font-extrabold">{site.wordmark.primary}</span>{" "}
+          <span className="flex flex-col leading-none">
             <span
               className={cn(
-                "font-medium",
-                tone === "light" ? "text-primary-200" : "text-primary-700",
+                "font-display text-[1.3rem] font-bold tracking-[0.14em] uppercase",
+                light ? "text-white" : "text-primary-950",
+              )}
+            >
+              {site.wordmark.primary}
+            </span>{" "}
+            <span
+              className={cn(
+                "mt-1 text-[0.62rem] font-semibold tracking-[0.46em] uppercase",
+                light ? "text-primary-200" : "text-primary-700",
               )}
             >
               {site.wordmark.secondary}

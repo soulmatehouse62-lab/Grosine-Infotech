@@ -16,14 +16,14 @@ export default function NotFound() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-primary-50 to-surface"
+        className="bg-mesh absolute inset-0 -z-10"
       />
       <Container className="py-20 text-center sm:py-28">
         <p
           aria-hidden="true"
-          className="font-display text-[7rem] leading-none font-extrabold text-primary-700 sm:text-[10rem]"
+          className="text-brand mx-auto w-fit font-display text-[7rem] leading-none font-extrabold sm:text-[10rem]"
         >
-          4<span className="text-accent-500">0</span>4
+          404
         </p>
         <h1 className="mt-4 text-3xl font-bold sm:text-5xl">
           This page has gone missing

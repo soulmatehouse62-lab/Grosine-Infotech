@@ -34,7 +34,7 @@ npm run dev        # development server at http://localhost:3000
 ```
 src/
   app/                  Routes (one folder per page), layout, global CSS,
-                        sitemap.ts, robots.ts, icon.svg (favicon)
+                        sitemap.ts, robots.ts, icon.png (favicon)
     services/[slug]/    Service detail template, one page per service
   components/
     layout/             Header, mega menu, mobile drawer, footer, logo,
@@ -44,7 +44,7 @@ src/
                         Accordion, Modal, EnquiryForm ...)
   data/                 ALL site content (see below)
   lib/                  Helpers: SEO metadata, JSON-LD schema, contact links
-public/                 Static files: og.png (social image), your logo
+public/                 Static files: logo-mark.png, og.png (social image)
 scripts/                Post-build step run automatically by `npm run build`
                         (copies Next.js prefetch files to the names browsers
                         request, so a plain static host returns no 404s)
@@ -88,34 +88,46 @@ Notes:
 The whole palette is defined once, in the `@theme` block at the top of
 `src/app/globals.css`:
 
-- `--color-primary-*` deep teal (headers, links, dark sections)
-- `--color-accent-*` saffron amber (main buttons and highlights)
+The colours were sampled from the Grosine Infotech logo.
+
+- `--color-primary-*` logo blue down to deep navy (links, dark sections)
+- `--color-accent-*` logo magenta (highlights)
+- `--color-violet`, `--color-violet-light` the middle of the logo arrow gradient
 - `--color-ink`, `--color-body`, `--color-muted`, `--color-line`,
   `--color-surface`, `--color-surface-alt` (neutrals)
 
+Just below that block, `--gradient-brand` defines the blue to violet to
+magenta gradient used on the main buttons, the hero headline and icon
+highlights (`bg-brand`, `text-brand`). It is built from the tokens above.
+
 Change the hex values there and every page follows. Keep each scale running
-from light (50) to dark (950) so text contrast stays accessible. Two places
-repeat a colour as a literal and should be updated to match: `themeColor` in
-`src/app/layout.tsx` and the favicon `src/app/icon.svg`.
+from light (50) to dark (950) so text contrast stays accessible. One place
+repeats a colour as a literal and should be updated to match: `themeColor` in
+`src/app/layout.tsx`.
 
 ## Changing fonts
 
-Fonts are loaded in `src/app/layout.tsx` with `next/font` (Bricolage Grotesque
-for headings, Inter for body). Swap the two imports for any other Google font;
+Fonts are loaded in `src/app/layout.tsx` with `next/font` (Outfit for
+headings, Inter for body). Swap the two imports for any other Google font;
 nothing else needs to change.
 
 ## Changing the logo
 
-The header and footer show a text wordmark until a logo file exists.
+The header and footer show the logo mark (`public/logo-mark.png`) next to the
+company name set as live text. The mark was cut out of the supplied logo JPG,
+so it is a 192 px raster image. It is sharp at header size, but a vector
+original from the designer would be better:
 
-1. Save the logo as `public/logo.svg`.
-2. Optional: save a light version for the dark footer as
-   `public/logo-light.svg`. Without it, the footer uses `logo.svg`.
-3. Rebuild (`npm run build`), or restart `npm run dev`.
+- **Sharper mark:** replace `public/logo-mark.png` with a transparent PNG (or
+  change the path in `src/components/layout/Logo.tsx` to an SVG).
+- **Full vector lockup instead of mark + text:** save it as `public/logo.svg`
+  and rebuild. The header and footer then use it automatically. Optionally add
+  `public/logo-light.svg` for the dark footer.
 
-The check happens at build time in `src/components/layout/Logo.tsx`. Also
-replace the favicon `src/app/icon.svg` and the social sharing image
-`public/og.png` (1200 x 630 px) with branded versions.
+The favicon (`src/app/icon.png`), the Apple touch icon
+(`src/app/apple-icon.png`) and the social sharing image (`public/og.png`,
+1200 x 630 px) were also generated from the supplied logo. Replace those files
+to change them.
 
 ## Connecting the contact form
 
@@ -210,10 +222,10 @@ to find each one.
 ### Configuration and assets
 
 - [ ] `.env.local`: `NEXT_PUBLIC_FORM_ENDPOINT` (and access key for Web3Forms)
-- [ ] `public/logo.svg` (and optionally `public/logo-light.svg`)
-- [ ] `src/app/icon.svg`: favicon, currently a placeholder "G" mark
-- [ ] `public/og.png`: social sharing image, currently a generated placeholder
-- [ ] Brand colours in `src/app/globals.css`, once the client's palette is known
+- [ ] Vector logo from the designer (the current mark is cut from a JPG; see
+      "Changing the logo")
+- [ ] `public/og.png`: social sharing image, generated from the logo; replace
+      if the client wants a designed one
 
 ### Copy to confirm with the client
 

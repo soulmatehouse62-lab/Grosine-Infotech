@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
 import { QuoteButton } from "@/components/ui/QuoteButton";
 import { cta, mainNav } from "@/data/navigation";
 import { cn } from "@/lib/cn";
@@ -37,7 +36,7 @@ export function HeaderNav({ logo, megaItems }: HeaderNavProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
-    <Container className="relative flex h-16 items-center justify-between gap-3 lg:h-20">
+    <div className="relative flex h-16 items-center justify-between gap-3 px-3.5 sm:px-5 lg:h-[4.5rem]">
       {logo}
 
       <nav aria-label="Main" className="hidden lg:block">
@@ -95,6 +94,6 @@ export function HeaderNav({ logo, megaItems }: HeaderNavProps) {
         megaItems={megaItems}
         isActive={isActive}
       />
-    </Container>
+    </div>
   );
 }

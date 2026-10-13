@@ -17,7 +17,7 @@ export function ServiceCard({ service, headingLevel: Heading = "h3" }: ServiceCa
       <div className="flex items-start justify-between">
         <IconBadge
           icon={service.icon}
-          className="transition duration-300 group-hover:bg-primary-700 group-hover:text-white"
+          className="transition duration-300 group-hover:bg-brand group-hover:text-white"
         />
         <ArrowUpRight
           className="size-5 text-muted transition duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary-700"

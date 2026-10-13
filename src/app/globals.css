@@ -2,45 +2,53 @@
 
 /* ==========================================================================
    BRAND PALETTE
+   Taken from the Grosine Infotech logo: royal blue to deep navy for the "G",
+   and the blue > violet > magenta gradient of the arrow.
+
    This block is the only place colours are defined. Change the values here
    and the whole site follows. Each token becomes a Tailwind utility
    (bg-primary-700, text-accent-500, border-line ...) and a CSS variable
    (var(--color-primary-700)).
    ========================================================================== */
 @theme {
-  /* Primary: deep teal */
-  --color-primary-50: #eff8f7;
-  --color-primary-100: #d7eeec;
-  --color-primary-200: #b0dcd9;
-  --color-primary-300: #7fc3c0;
-  --color-primary-400: #4aa3a1;
-  --color-primary-500: #2a8584;
-  --color-primary-600: #176d6d;
-  --color-primary-700: #0f5c5c;
-  --color-primary-800: #0c4a4b;
-  --color-primary-900: #0a3b3c;
-  --color-primary-950: #062a2b;
+  /* Primary: logo blue, running down to the logo's deep navy */
+  --color-primary-50: #eef5ff;
+  --color-primary-100: #d9e8ff;
+  --color-primary-200: #bcd6ff;
+  --color-primary-300: #8ebaff;
+  --color-primary-400: #5994fb;
+  --color-primary-500: #2f6ff0;
+  --color-primary-600: #1a56db;
+  --color-primary-700: #0a46c4;
+  --color-primary-800: #06379b;
+  --color-primary-900: #052a78;
+  --color-primary-950: #021750;
 
-  /* Accent: saffron amber (main call-to-action colour) */
-  --color-accent-50: #fff8eb;
-  --color-accent-100: #feecc7;
-  --color-accent-200: #fdd98a;
-  --color-accent-300: #fcc24d;
-  --color-accent-400: #fbae24;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97f06;
-  --color-accent-700: #a85a08;
+  /* Accent: logo magenta (arrow tip) */
+  --color-accent-50: #fff0f7;
+  --color-accent-100: #ffe1f0;
+  --color-accent-200: #ffc4e2;
+  --color-accent-300: #ff96cb;
+  --color-accent-400: #fb5aaa;
+  --color-accent-500: #f01d86;
+  --color-accent-600: #d1106f;
+  --color-accent-700: #a80d5a;
 
-  /* Neutrals */
-  --color-ink: #0b1f1f; /* headings and body text, dark sections */
-  --color-body: #3d4a49; /* paragraph text */
-  --color-muted: #5b6665; /* secondary text */
-  --color-line: #e7e2d9; /* borders and dividers */
-  --color-surface: #faf8f4; /* page background */
-  --color-surface-alt: #f3efe7; /* alternate section background */
+  /* Violet: the middle of the logo's arrow gradient */
+  --color-violet: #6d28c9;
+  --color-violet-light: #a78bfa;
 
-  --shadow-soft: 0 1px 2px rgb(11 31 31 / 0.04), 0 8px 24px -8px rgb(11 31 31 / 0.1);
-  --shadow-lift: 0 2px 4px rgb(11 31 31 / 0.05), 0 20px 40px -16px rgb(11 31 31 / 0.22);
+  /* Neutrals (cool, to sit with the blues) */
+  --color-ink: #080f2b; /* headings, darkest backgrounds */
+  --color-body: #39435c; /* paragraph text */
+  --color-muted: #5a6480; /* secondary text */
+  --color-line: #e1e7f0; /* borders and dividers */
+  --color-surface: #f7f9fc; /* page background */
+  --color-surface-alt: #eef2f9; /* alternate section background */
+
+  --shadow-soft: 0 1px 2px rgb(8 15 43 / 0.04), 0 8px 24px -10px rgb(8 15 43 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(8 15 43 / 0.05), 0 24px 48px -18px rgb(8 15 43 / 0.28);
+  --shadow-glow: 0 12px 28px -12px var(--color-accent-600);
 
   --animate-float: float 7s ease-in-out infinite;
   --animate-fade-in: fade-in 0.2s ease-out;
@@ -80,10 +88,76 @@
   --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* The logo's arrow gradient. Every stop is dark enough for white text. */
+:root {
+  --gradient-brand: linear-gradient(
+    100deg,
+    var(--color-primary-700) 0%,
+    var(--color-violet) 55%,
+    var(--color-accent-600) 100%
+  );
+  /* Lighter version for text and details on dark backgrounds. */
+  --gradient-brand-light: linear-gradient(
+    100deg,
+    var(--color-primary-300) 0%,
+    var(--color-violet-light) 50%,
+    var(--color-accent-300) 100%
+  );
+}
+
+@utility bg-brand {
+  background-image: var(--gradient-brand);
+}
+
+@utility text-brand {
+  background-image: var(--gradient-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility text-brand-light {
+  background-image: var(--gradient-brand-light);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Soft colour wash for light sections (hero, 404). */
+@utility bg-mesh {
+  background-image:
+    radial-gradient(55% 60% at 8% 0%, color-mix(in srgb, var(--color-primary-500) 20%, transparent), transparent 70%),
+    radial-gradient(45% 55% at 98% 12%, color-mix(in srgb, var(--color-accent-500) 13%, transparent), transparent 70%),
+    radial-gradient(50% 50% at 62% 100%, color-mix(in srgb, var(--color-violet) 10%, transparent), transparent 70%);
+}
+
+/* Glow for dark navy sections (page heroes, process, CTA band). */
+@utility bg-mesh-dark {
+  background-image:
+    radial-gradient(50% 70% at 100% 0%, color-mix(in srgb, var(--color-primary-500) 45%, transparent), transparent 70%),
+    radial-gradient(40% 60% at 0% 100%, color-mix(in srgb, var(--color-violet) 40%, transparent), transparent 70%),
+    radial-gradient(30% 45% at 55% 110%, color-mix(in srgb, var(--color-accent-500) 28%, transparent), transparent 70%);
+}
+
+/* Fine grid lines that fade out towards the edges. Colour comes from `color`. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(currentColor 1px, transparent 1px),
+    linear-gradient(90deg, currentColor 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 80%);
+}
+
+/* Dotted texture used on small cards and artwork. */
+@utility bg-dots {
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 6.5rem;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -106,7 +180,7 @@
   h4 {
     font-family: var(--font-display);
     color: var(--color-ink);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     text-wrap: balance;
   }
 
@@ -117,7 +191,7 @@
   }
 
   ::selection {
-    background-color: var(--color-accent-200);
+    background-color: var(--color-primary-200);
     color: var(--color-ink);
   }
 
@@ -126,7 +200,7 @@
   }
 
   dialog::backdrop {
-    background: rgb(6 42 43 / 0.6);
+    background: rgb(8 15 43 / 0.6);
     backdrop-filter: blur(3px);
     animation: fade-in 0.2s ease-out;
   }
@@ -154,12 +228,6 @@
 }
 
 @layer components {
-  /* Dotted texture used behind heroes and dark bands. */
-  .bg-dots {
-    background-image: radial-gradient(currentColor 1px, transparent 1px);
-    background-size: 22px 22px;
-  }
-
   /* Text on dark sections. */
   .on-dark h1,
   .on-dark h2,

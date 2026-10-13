@@ -15,8 +15,10 @@ export function Header() {
   }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-surface/90 backdrop-blur-md">
-      <HeaderNav logo={<Logo />} megaItems={megaItems} />
+    <header className="sticky top-0 z-40 px-3 pt-3 sm:px-4">
+      <div className="mx-auto max-w-7xl rounded-2xl border border-white/70 bg-white/85 shadow-soft backdrop-blur-xl">
+        <HeaderNav logo={<Logo />} megaItems={megaItems} />
+      </div>
     </header>
   );
 }

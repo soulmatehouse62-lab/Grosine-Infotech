@@ -30,21 +30,15 @@ export function CtaBand({
     <section
       id="enquiry"
       aria-labelledby="cta-heading"
-      className="on-dark relative overflow-hidden bg-primary-900 py-16 text-primary-100 sm:py-20 lg:py-24"
+      className="on-dark relative overflow-hidden bg-primary-950 py-16 text-primary-100 sm:py-20 lg:py-24"
     >
-      <div aria-hidden="true" className="bg-dots absolute inset-0 text-white/[0.06]" />
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-40 -left-24 size-[28rem] rounded-full bg-primary-600/40 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute -top-24 right-0 size-72 rounded-full bg-accent-500/20 blur-3xl"
-      />
+      <div aria-hidden="true" className="bg-mesh-dark absolute inset-0" />
+      <div aria-hidden="true" className="bg-grid absolute inset-0 text-white/[0.07]" />
 
       <Container className="relative grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="mb-3 text-sm font-semibold tracking-wide text-accent-300 uppercase">
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3.5 py-1.5 text-xs font-semibold tracking-[0.14em] text-primary-100 uppercase">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-accent-500" />
             Free consultation
           </p>
           <h2
@@ -62,7 +56,7 @@ export function CtaBand({
               <li key={promise} className="flex items-start gap-3">
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-accent-500 text-ink"
+                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-brand text-white"
                 >
                   <Check className="size-3.5" strokeWidth={3} />
                 </span>

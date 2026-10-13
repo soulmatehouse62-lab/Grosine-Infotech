@@ -19,11 +19,14 @@ export function Footer() {
   );
 
   return (
-    <footer className="bg-primary-950 text-primary-100/80">
+    <footer className="bg-ink text-primary-100/80">
       <Container className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_0.8fr_1.3fr] lg:gap-10">
         <div>
           <Logo tone="light" />
-          <p className="mt-5 max-w-sm leading-relaxed">
+          <p className="mt-5 text-xs font-semibold tracking-[0.28em] text-primary-200 uppercase">
+            {site.motto.join(" · ")}
+          </p>
+          <p className="mt-4 max-w-sm leading-relaxed">
             A Jaipur-based digital marketing and website development agency
             helping small and mid-sized businesses get found, look credible
             and win more enquiries online.
@@ -39,7 +42,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${site.name} on ${label}`}
-                      className="flex size-11 items-center justify-center rounded-full border border-white/15 text-primary-100 transition hover:border-accent-400 hover:bg-accent-500 hover:text-ink"
+                      className="flex size-11 items-center justify-center rounded-full border border-white/15 text-primary-100 transition hover:border-transparent hover:bg-brand hover:text-white"
                     >
                       <Icon className="size-5" />
                     </a>

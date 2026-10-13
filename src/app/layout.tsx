@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -13,7 +13,7 @@ import "./globals.css";
 
 // Display font for headings, clean sans for body. Both are self-hosted by
 // next/font at build time. To change fonts, swap the imports here.
-const headingFont = Bricolage_Grotesque({
+const headingFont = Outfit({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0f5c5c",
+  themeColor: "#021750",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

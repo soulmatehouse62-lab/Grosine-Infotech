@@ -22,7 +22,7 @@ export function Industries() {
             >
               <span
                 aria-hidden="true"
-                className="flex size-12 items-center justify-center rounded-full bg-primary-50 text-primary-700 transition duration-300 group-hover:bg-accent-500 group-hover:text-ink"
+                className="flex size-12 items-center justify-center rounded-full bg-primary-50 text-primary-700 transition duration-300 group-hover:bg-brand group-hover:text-white"
               >
                 <industry.icon className="size-6" strokeWidth={1.75} />
               </span>
